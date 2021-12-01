@@ -20,16 +20,16 @@ Action#Create a new Azure Logic App\
 \$logicApp = New-AzLogicApp -ResourceGroupName myResourceGroup -Name MyNewLogicApp -Location westus -Sku S1\
 
 ## Codex Generated Output below *Currently untested*
->$logicApp = New-AzLogicApp -ResourceGroupName myResourceGroup -Name MyNewLogicApp -Location westus -Sku S1 -Workflow @"\
-```json
+>\$logicApp = New-AzLogicApp -ResourceGroupName myResourceGroup -Name MyNewLogicApp -Location westus -Sku S1 -Workflow @"
+```
 {
-  '$schema': 'https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#\',
+  '$schema': 'https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#',
   'contentVersion': '1.0.0.0',
   'parameters': {
     'items': {
       'type': 'string'
-    }\
-  },\
+    }
+  },
   'triggers': {
     'inHTTP': {
       'type': 'http',
@@ -49,7 +49,7 @@ Action#Create a new Azure Logic App\
       'headers': {
         'content-type': 'application/json'
       },
-      'body': '{ "items": $input.json(\'$.items\') }'
+      'body': '{ "items": \$input.json(\'\$.items\') }'
     }
   },
   'actions': {
